@@ -52,7 +52,7 @@ function update-dns-entry() {
   ]
 }
 EOF
-  output="$(aws route53 change-resource-record-sets --hosted-zone-id "$ZONE_IP" --change-batch "$batch" 2>&1)"
+  output="$(aws route53 change-resource-record-sets --hosted-zone-id "$ZONE_ID" --change-batch "$batch" 2>&1)"
   success=$?
   if (( success == 0 )); then
     log "$output"
